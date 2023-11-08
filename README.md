@@ -16,7 +16,7 @@ cd Silencer
 
 Install dependencies from requirements.txt:
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 # Usage
