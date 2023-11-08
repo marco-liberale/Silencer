@@ -57,8 +57,10 @@ try:
     from optparse import OptionParser
 
     parser = OptionParser()
-    parser.add_option("-n", "--new-ip", dest="newip", action="store_true", default=False)
-    parser.add_option("-c", "--command", dest="cmd")
+    parser.add_option("-n", "--new-ip", dest="newip", action="store_true", default=False,
+                      help="Get a new TOR IP. This option does not require a value.")
+    parser.add_option("-c", "--command", dest="cmd",
+                      help="Specify the command to run. This option requires a value.")
     (options, args) = parser.parse_args()
     def check_rq():
         print("checking if tor is installed")
