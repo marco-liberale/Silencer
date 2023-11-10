@@ -30,8 +30,8 @@ try:
                      ,,,,,,,,,                                                      
                       ,,,,,,,,,                                                     
                        ,,,,    
-        Version 1.0
-
+                       
+        Version 1.1
         If you have any questions or would like to connect, feel free to contact me:
         
         
@@ -56,7 +56,20 @@ try:
     import select
     import colorama
     from optparse import OptionParser
+    import os
 
+    if os.getuid() == 0:
+        print('Running as root')
+    else:
+        print('Please run as root')
+        exit(0)
+
+    def is_package_installed(package_name):
+        try:
+            __import__(package_name)
+            return True
+        except ImportError:
+            return False
     parser = OptionParser()
     parser.add_option("-n", "--new-ip", dest="newip", action="store_true", default=False,
                       help="Get a new TOR IP. This option does not require a value.")
@@ -65,9 +78,12 @@ try:
     (options, args) = parser.parse_args()
     def check_rq():
         print("checking if tor is installed")
-        os.system("sudo apt install tor")
-        print("starting tor")
-        subprocess.run("sudo systemctl tor start")
+        if is_package_installed("tor"):
+            print("Please install tor before using this tool")
+            exit(1)
+        print("Starting tor")
+        subprocess.run(["sudo", "systemctl", "start", "tor"], check=True)
+    check_rq()
     def check_internet():
         try:
             socket.create_connection(("www.google.com", 80))
@@ -106,7 +122,7 @@ try:
         else:
             print("No input provided.")
 except Exception as e:
-    print("Error: " + e)
+    print("Error: " + str(e))
     exit(1)
 except KeyboardInterrupt:
     ex = input("Exit? (Y/N): ")
