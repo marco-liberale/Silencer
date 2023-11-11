@@ -25,13 +25,13 @@ To begin using Silencer, run a command with the "-c" option.
 
 Example:
 ```bash
-sudo python3 silencer.py -c 'nmap -sT -PN -n -p 80,22 www.scanme.marcoliberale.com'
+sudo python3 silencer.py -c 'nmap -sT -PN -n -p 80,22 www.marcoliberale.com'
 ```
 
 You can also use "-n" to get a new IP:
 ```bash
 
-sudo python3 silencer.py -n -c 'nmap -sT -PN -n -p 80,22 www.scanme.marcoliberale.com'
+sudo python3 silencer.py -n -c 'nmap -sT -PN -n -p 80,22 www.marcoliberale.com'
 ```
 
 Note: Remember to put commands with spaces between quotes.
