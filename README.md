@@ -54,5 +54,12 @@ You can now run it like this:
 ```bash
 
 sudo silencer -c 'nmap -sT -PN -n -p 80,22 www.scanme.marcoliberale.com'
-
 ```
+
+enjoy :)
+
+
+# Legal Disclamer
+By using the repository, you acknowledge that you have read this [Disclaimer](https://github.com/marco-liberale/Silencer/blob/main/legal_disclamer.pdf) and agree to be bound by the terms hereof.
+If you do not agree to abide by the above, please do not use the repository.
+
