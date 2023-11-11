@@ -1,5 +1,5 @@
 # Silencer
-Silencer is a Python-based tool that allows users to run commands over the Tor network.
+Silencer is a beginner friendly Python-based tool that allows users to run commands over the Tor network.
 # Installation
 To install Silencer, use the following commands:
 
